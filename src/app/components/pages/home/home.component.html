@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="sidebar">
+    <div class="sidebar-item">
+      <app-username (toggleView)="onToggleView($event)"></app-username>
+    </div>
+    <div class="sidebar-item sidebar-separator">
+      <app-my-library (videoSelected)="onVideoSelected($event)" [isVideoPlayerVisible]="isVideoPlayerVisible"></app-my-library>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <app-video-player *ngIf="isVideoPlayerVisible" [video]="selectedVideo"></app-video-player>
+    <app-search *ngIf="!isVideoPlayerVisible"></app-search>
+  </div>
+</div>

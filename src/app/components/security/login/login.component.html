@@ -1,0 +1,15 @@
+<div class="container">
+  <form (submit)="login()">
+    <input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email" required>
+    <input type="password" placeholder="Mot de passe" [(ngModel)]="credentials.password" name="password" required>
+    <button type="submit">Se connecter</button>
+  </form>
+  <div *ngIf="loginError" style="color: red;">
+    Email ou mot de passe incorrect.
+  </div>
+  <div class="register-link">
+    <a routerLink="/register">Créer un compte</a>
+  </div>
+</div>
+
+

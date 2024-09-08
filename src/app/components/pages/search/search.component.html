@@ -1,0 +1,21 @@
+<div class="search-container">
+  <div class="search-bar">
+    <input [(ngModel)]="query" placeholder="Rechercher des vidéos" class="search-input">
+    <button (click)="search()" class="search-button">Rechercher</button>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="video-list">
+    <div class="video-item" *ngFor="let video of videos">
+      <img [src]="video.snippet.thumbnails.default.url" alt="{{ video.snippet.title }}" class="video-thumbnail">
+
+      <div class="video-info">
+        <div class="video-header">
+          <h3 class="video-title">{{ video.snippet.title }}</h3>
+          <button class="add-button" (click)="addToLibrary(video)">Ajouter à la Playlist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
